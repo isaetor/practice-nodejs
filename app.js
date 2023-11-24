@@ -1,7 +1,9 @@
-const fs = require('fs');
+const http = require('http');
 
-const readString = fs.createReadStream('./docs/blog.txt')
+const server = http.createServer((req, res)=>{
+    res.end('<h1>Hello World!</h1>')
+});
 
-readString.on('data', (buffer)=>{
-    console.log(buffer);
+server.listen(3000, 'localhost', ()=>{
+    console.log('listening to port: 3000');
 })
